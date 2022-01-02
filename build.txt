@@ -1,0 +1,3 @@
+displayName = NPCs Hide From Bosses
+author = Snek
+version = 0.1
