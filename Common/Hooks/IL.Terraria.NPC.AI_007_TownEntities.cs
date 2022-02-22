@@ -1,4 +1,5 @@
 ﻿using MonoMod.Cil;
+using System;
 using Terraria;
 
 namespace CowardlyNPCs.Common.Hooks
@@ -8,12 +9,12 @@ namespace CowardlyNPCs.Common.Hooks
 		/// <summary>
 		/// Makes NPCs go home if a boss is alive.
 		/// </summary>
-		private void NPC_AI_007_TownEntities(ILContext il)
+		private static void NPC_AI_007_TownEntities(ILContext il)
 		{
-			ILCursor c = new(il);
+			ILCursor c = new ILCursor(il);
 
 			#region
-			///	flag: If true, the NPC will go to their home tile. Local ID: 1.\
+			///	flag: If true, the NPC will go to their home tile. Local ID: 1.
 			/// Match:
 			///		bool flag = Main.raining;
 			///	Change to:
@@ -29,7 +30,7 @@ namespace CowardlyNPCs.Common.Hooks
 			}
 
 			c.Index += 1;
-			c.EmitDelegate((bool flag) => flag || Main.CurrentFrameFlags.AnyActiveBossNPC);
+			c.EmitDelegate<Func<bool, bool>>((bool flag) => flag || BossCheckWorld.AnyBoss);
 
 			#endregion
 		}

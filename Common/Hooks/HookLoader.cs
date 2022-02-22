@@ -4,19 +4,19 @@ using Terraria.ModLoader;
 
 namespace CowardlyNPCs.Common.Hooks
 {
-	internal partial class HookLoader : ILoadable
+	internal partial class HookLoader
 	{
 		private const string ILFailMessage = "{0} could not patch {1}.";
 		private static Mod _mod;
 
-		public void Load(Mod mod)
+		public static void Load(Mod mod)
 		{
 			_mod = mod;
 
 			IL.Terraria.NPC.AI_007_TownEntities += NPC_AI_007_TownEntities;
 		}
 
-		public void Unload()
+		public static void Unload()
 		{
 			_mod = null;
 
