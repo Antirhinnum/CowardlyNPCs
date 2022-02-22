@@ -1,7 +1,7 @@
 displayName = NPCs Hide From Bosses
 author = Snek
 version = 1.0.0.0
-homepage = 
+homepage = https://forums.terraria.org/index.php?threads/npcs-hide-from-bosses.111026/
 hideCode = false
 hideResources = false
 includeSource = true
