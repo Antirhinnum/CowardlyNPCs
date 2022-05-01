@@ -1,5 +1,4 @@
 ﻿using MonoMod.Cil;
-using System;
 using Terraria;
 
 namespace CowardlyNPCs.Common.Hooks
@@ -11,7 +10,7 @@ namespace CowardlyNPCs.Common.Hooks
 		/// </summary>
 		private static void NPC_AI_007_TownEntities(ILContext il)
 		{
-			ILCursor c = new ILCursor(il);
+			ILCursor c = new(il);
 
 			#region
 			///	flag: If true, the NPC will go to their home tile. Local ID: 1.
@@ -20,9 +19,11 @@ namespace CowardlyNPCs.Common.Hooks
 			///	Change to:
 			///		bool flag = Main.raining || Main.CurrentFrameFlags.AnyActiveBossNPC;
 
+			const int local_shouldGoToHomeTile = 1;
+
 			if (!c.TryGotoNext(MoveType.Before,
 					i => i.MatchLdsfld<Main>(nameof(Main.raining)),
-					i => i.MatchStloc(1)
+					i => i.MatchStloc(local_shouldGoToHomeTile)
 				))
 			{
 				LogHookFailed(il);
@@ -30,7 +31,7 @@ namespace CowardlyNPCs.Common.Hooks
 			}
 
 			c.Index += 1;
-			c.EmitDelegate<Func<bool, bool>>((bool flag) => flag || BossCheckWorld.AnyBoss);
+			c.EmitDelegate((bool flag) => flag || Main.CurrentFrameFlags.AnyActiveBossNPC);
 
 			#endregion
 		}
