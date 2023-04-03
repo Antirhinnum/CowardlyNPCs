@@ -1,8 +1,7 @@
 using Terraria.ModLoader;
 
-namespace CowardlyNPCs
+namespace CowardlyNPCs;
+
+public sealed class CowardlyNPCs : Mod
 {
-	public class CowardlyNPCs : Mod
-	{
-	}
 }

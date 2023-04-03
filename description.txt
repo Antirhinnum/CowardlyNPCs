@@ -1,5 +1,1 @@
-A simple mod that makes NPCs hide in their house during boss fights, like how they do at night.
-
-Changelog:
- - 1.0.0.0: Release.
- - 1.0.0.1: Added icon.
+NPCs Hide From Bosses is a mod that makes town NPCs hide in their houses when a boss is alive.

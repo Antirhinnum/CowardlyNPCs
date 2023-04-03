@@ -1,8 +1,8 @@
 displayName = NPCs Hide From Bosses
 author = Snek
-version = 1.0.0.2
-homepage = https://forums.terraria.org/index.php?threads/npcs-hide-from-bosses.111026/
-hideCode = false
-hideResources = false
-includeSource = true
-buildIgnore = build.txt, ./*, bin/*, obj/*, Properties/*, .gitignore, LICENSE, README.md, *.pdn, Eye of Cthulhu Rotated.bmp
+version = 1.0.0.3
+homepage = https://github.com/Antirhinnum/CowardlyNPCs
+hideCode = true
+hideResources = true
+includeSource = false
+buildIgnore = LICENSE, README.md, *.pdn, Eye of Cthulhu Rotated.bmp
